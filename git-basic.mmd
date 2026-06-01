@@ -1,0 +1,47 @@
+---
+config:
+  theme: neutral
+  layout: elk
+---
+graph LR
+    subgraph Local_Env ["Local Environment"]
+        WorkDir["Working Directory<br>(Workspace)"]
+        Stage["Staging Area<br>(Index)"]
+        LocalRepo["Local Repository<br>(.git history)"]
+        Stash["Stash Stack<br>(Temporary Storage)"]
+    end
+
+    subgraph Remote_Env ["Remote Environment"]
+        RemoteRepo["Remote Repository<br>(GitHub / GitLab)"]
+    end
+
+    %% Moving Forward (The Happy Path - Solid Lines)
+    WorkDir -->|git add| Stage
+    Stage -->|git commit| LocalRepo
+    LocalRepo -->|git push| RemoteRepo
+
+    %% Bringing Changes Down (Dashed Lines)
+    RemoteRepo -.->|git fetch| LocalRepo
+    RemoteRepo -.->|"git pull / git clone"| WorkDir
+
+    %% The Stash Area
+    WorkDir -->|git stash push| Stash
+    Stash -.->|"git stash pop / apply"| WorkDir
+
+    %% Undoing & Restoring (Dashed Lines)
+    Stage -.->|"git restore --staged"| WorkDir
+    LocalRepo -.->|"git reset --soft"| Stage
+    LocalRepo -.->|"git reset --mixed / --hard<br>git checkout / git switch"| WorkDir
+
+    %% Styling Declarations
+    classDef working fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c;
+    classDef staging fill:#e8f5e9,stroke:#388e3c,stroke-width:2px,color:#1b5e20;
+    classDef local fill:#e1f5fe,stroke:#0288d1,stroke-width:2px,color:#01579b;
+    classDef remote fill:#fff3e0,stroke:#f57c00,stroke-width:2px,color:#e65100;
+    classDef stash fill:#f3e5f5,stroke:#8e24aa,stroke-width:2px,color:#4a148c;
+
+    class WorkDir working;
+    class Stage staging;
+    class LocalRepo local;
+    class RemoteRepo remote;
+    class Stash stash;
