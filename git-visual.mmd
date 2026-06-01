@@ -1,0 +1,45 @@
+---
+config:
+  theme: neutral
+  layout: elk
+---
+flowchart LR
+ subgraph Local_Env["Local Environment"]
+        WD["Working Directory<br>(Workspace)"]
+        SA["Staging Area<br>(Index)"]
+        LR["Local Repository<br>(.git history)"]
+        ST["Stash Stack<br>(Temporary Storage)"]
+  end
+ subgraph Remote_Env["Remote Environment"]
+        RR["Remote Repository<br>(GitHub / GitLab)"]
+  end
+    WD -- git add --> SA
+    SA -- git commit --> LR
+    LR -- git push --> RR
+    RR -- git fetch --> LR
+    RR -- git pull <br> (fetch + merge) --> WD
+    RR -- git clone --> WD
+    WD -- git stash push --> ST
+    ST -- git stash pop / apply --> WD
+    ST -- git stash drop / clear --> ST
+    SA -- "git restore --staged" --> WD
+    WD -- "git restore / git checkout --" --> WD
+    LR -- "git reset --soft" --> SA
+    LR -- "git reset --mixed" --> WD
+    LR -- "git reset --hard" --> WD
+    LR -- git revert --> LR
+    LR -- git checkout / git switch --> WD
+    LR -- git merge / git rebase --> LR
+    LR -- git log / git status --> WD
+    n1["Untitled Node"]
+
+     WD:::working
+     SA:::staging
+     LR:::local
+     ST:::stash
+     RR:::remote
+    classDef working fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    classDef staging fill:#e8f5e9,stroke:#388e3c,stroke-width:2px,color:#1b5e20
+    classDef local fill:#e1f5fe,stroke:#0288d1,stroke-width:2px,color:#01579b
+    classDef remote fill:#fff3e0,stroke:#f57c00,stroke-width:2px,color:#e65100
+    classDef stash fill:#f3e5f5,stroke:#8e24aa,stroke-width:2px,color:#4a148c
