@@ -4,12 +4,22 @@ Visual diagrams that explain Git commands and data flow – from working directo
 
 ## Diagrams
 
-| File | Description |
-|------|-------------|
-| `git-basic.mmd` | Core workflow: add, commit, push, fetch/pull, and stash basics |
-| `git-visual.mmd` | Extended operations: reset, restore, revert, merge, rebase, and more |
+| Mermaid Source | Description | Preview Image |
+|----------------|-------------|---------------|
+| [`git-basic.mmd`](git-basic.mmd) | Core workflow: add, commit, push, fetch/pull, and stash basics | [git-basic.png](image/git-basic.png) |
+| [`git-visual.mmd`](git-visual.mmd) | Extended operations: reset, restore, revert, merge, rebase, and more | [git-visual.png](image/git-visual.png) |
 
-Both use [Mermaid](https://mermaid.js.org/). For best viewing, use a Mermaid‑supported viewer (GitHub still works good).
+Both source files use [Mermaid](https://mermaid.js.org/). For best viewing or editing, use a Mermaid‑supported viewer. Rendered static images are also available in the [`image/`](image/) folder.
+
+## Previews
+
+### Core Workflow (`git-basic.png`)
+![Core Git Workflow](image/git-basic.png)
+
+### Extended Operations (`git-visual.png`)
+![Extended Git Operations](image/git-visual.png)
+
+---
 
 For interactive learning, also checkout [LearnGitBranching](https://github.com/pcottle/learnGitBranching).
 
