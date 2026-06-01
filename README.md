@@ -13,6 +13,8 @@ Both use [Mermaid](https://mermaid.js.org/). For best viewing, use a Mermaid‑s
 
 For interactive learning, also checkout [LearnGitBranching](https://github.com/pcottle/learnGitBranching).
 
+For git command documentations, visit [Git Cheat Sheet](https://git-scm.com/cheat-sheet)
+
 ## License
 
 Public domain (Unlicense). No restrictions, no warranty.
