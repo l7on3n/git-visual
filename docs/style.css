@@ -233,6 +233,7 @@ section h2::after {
     border-radius: 5px;
     margin-bottom: 1.5rem;
     box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+    position: relative;
 }
 
 .img-wrapper img {
@@ -286,6 +287,91 @@ footer a:hover {
     margin-top: 1rem;
     font-size: 0.9rem;
     opacity: 0.7;
+}
+
+/* Maximize Icon */
+.maximize-icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 45px;
+    height: 45px;
+    background: white;
+    border: 3px solid #333;
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 2px 3px 0 rgba(0,0,0,0.1);
+    transition: transform 0.2s, background 0.2s;
+    z-index: 5;
+}
+
+.maximize-icon:hover {
+    transform: scale(1.1) rotate(5deg);
+    background: #ffebee; /* light red scribble */
+}
+
+.maximize-icon svg {
+    width: 24px;
+    height: 24px;
+    stroke: #333;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(253, 251, 247, 0.95);
+    overflow: auto;
+}
+
+.modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+    border: 3px solid #333;
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    box-shadow: 10px 15px 0px rgba(0,0,0,0.2);
+    background: white;
+    padding: 10px;
+    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #333;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+    font-family: 'Kalam', cursive;
+    z-index: 1001;
+}
+
+.close-modal:hover {
+    transform: scale(1.2) rotate(-10deg);
+    color: #c62828;
 }
 
 /* Responsive */

@@ -22,4 +22,44 @@ document.addEventListener("DOMContentLoaded", () => {
             notebookLines.style.transform = `translateY(${scrolled * 0.1}px)`;
         }
     });
+
+    // Image Maximization Logic
+    const maximizeIcons = document.querySelectorAll('.maximize-icon');
+    const images = document.querySelectorAll('.img-wrapper img');
+    const modal = document.getElementById('image-modal');
+    const modalImg = document.getElementById('maximized-img');
+    const closeModal = document.querySelector('.close-modal');
+
+    function openModal(src) {
+        modalImg.src = src;
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling background
+    }
+
+    maximizeIcons.forEach((icon, index) => {
+        icon.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent trigger if img has click listener
+            openModal(images[index].src);
+        });
+    });
+
+    // Also allow clicking the image itself to maximize
+    images.forEach((img) => {
+        img.addEventListener('click', () => {
+            openModal(img.src);
+        });
+        img.style.cursor = 'zoom-in';
+    });
+
+    closeModal.addEventListener('click', () => {
+        modal.classList.remove('show');
+        document.body.style.overflow = 'auto';
+    });
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+    });
 });
