@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Visual - Scribbly Git Diagrams</title>
+    <meta name="description" content="Visual diagrams that explain Git commands and data flow in a fun, scribbly style.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="notebook-lines"></div>
+    <div class="container">
+        <header class="hero">
+            <h1 class="title">git-visual</h1>
+            <p class="subtitle">Visual diagrams that explain Git commands and data flow – from working directory to remote repository.</p>
+            <div class="scribble-line"></div>
+        </header>
+
+        <section class="environments">
+            <h2>The Git Environments</h2>
+            <div class="grid">
+                <div class="env-card env-working">
+                    <h3>Working Directory</h3>
+                    <p>(Workspace)</p>
+                    <div class="action">git add &rarr;</div>
+                </div>
+                <div class="env-card env-staging">
+                    <h3>Staging Area</h3>
+                    <p>(Index)</p>
+                    <div class="action">git commit &rarr;</div>
+                </div>
+                <div class="env-card env-local">
+                    <h3>Local Repository</h3>
+                    <p>(.git history)</p>
+                    <div class="action">git push &rarr;</div>
+                </div>
+                <div class="env-card env-remote">
+                    <h3>Remote Repository</h3>
+                    <p>(GitHub / GitLab)</p>
+                </div>
+            </div>
+            <div class="env-card env-stash stash-box">
+                <h3>Stash Stack</h3>
+                <p>(Temporary Storage)</p>
+            </div>
+        </section>
+
+        <section class="diagrams">
+            <h2>The Diagrams</h2>
+            <div class="diagram-container">
+                <div class="diagram-card scribble-border">
+                    <h3>Core Workflow</h3>
+                    <p>Core workflow: add, commit, push, fetch/pull, and stash basics</p>
+                    <div class="img-wrapper">
+                        <img src="../image/git-basic.png" alt="Core Git Workflow Diagram" loading="lazy">
+                    </div>
+                    <a href="https://github.com/l7on3n/git-visual/blob/main/git-basic.mmd" class="btn" target="_blank">View Source</a>
+                </div>
+                
+                <div class="diagram-card scribble-border mt-4">
+                    <h3>Extended Operations</h3>
+                    <p>Extended operations: reset, restore, revert, merge, rebase, and more</p>
+                    <div class="img-wrapper">
+                        <img src="../image/git-visual.png" alt="Extended Git Operations Diagram" loading="lazy">
+                    </div>
+                    <a href="https://github.com/l7on3n/git-visual/blob/main/git-visual.mmd" class="btn" target="_blank">View Source</a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="scribble-line footer-line"></div>
+            <p>Created for visual learners. <a href="https://github.com/pcottle/learnGitBranching" target="_blank">Learn Git Branching</a> | <a href="https://git-scm.com/cheat-sheet" target="_blank">Git Cheat Sheet</a></p>
+            <p class="license">Public domain (Unlicense). No restrictions, no warranty.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
