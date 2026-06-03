@@ -211,6 +211,10 @@ section h2::after {
     transform: rotate(2deg);
 }
 
+.stash-box:hover {
+    transform: translateY(-5px) rotate(3deg);
+}
+
 /* Diagrams Section */
 .diagram-card {
     text-align: center;
